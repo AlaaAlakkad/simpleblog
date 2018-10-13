@@ -36,9 +36,5 @@ Route::get('comments/{id}/edit', 'CommentsController@edit')->name('comments.edit
 Route::put('comments/{id}', 'CommentsController@update')->name('comments.update');
 Route::delete('comments/{id}', 'CommentsController@destroy')->name('comments.destroy');
 
-// test for json responses
-Route::get('test', function(){
-    return ['user1', 'user2', 'user3', 'user4'];
-});
 
 

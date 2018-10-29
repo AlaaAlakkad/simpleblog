@@ -10,4 +10,4 @@ to run the project just do `npm install`, and don't forget to update the `.env` 
 finally `php artisan serve`
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).

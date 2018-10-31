@@ -47,7 +47,7 @@ class PostsController extends Controller
         $request->validate([
             "title"       => "required|max:255",
             "slug"        => "required|alpha_dash|min:5|max:255|unique:posts,slug",
-            "category_id" => "required|integer", //prevent from spoofing
+            "category_id" => "required|integer", //prevent spoofing
             "body"        => "required"
         ]);
 
@@ -58,7 +58,7 @@ class PostsController extends Controller
         $post->body  = $request->body;
 
         $post->save();
-        // we sync after we save the post we use th sunc function, second param to prevent overriting existing values.
+        // we sync after we save the post we use the sync function, second param to prevent overriting existing values.
         // note that we call tags() as a function not as a property.
         $post->tags()->sync($request->tags, false);
 

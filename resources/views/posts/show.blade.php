@@ -4,7 +4,7 @@
     <div class="row mb-5">
         <div class="col-md-8">
             <h1>{{$post->title}}</h1>
-            <p>{{$post->body}}</p>
+            <p>{!!$post->body!!}</p>
             <hr>
             <div>
                 @foreach ($post->tags as $tag)
@@ -56,11 +56,11 @@
                     </dl>
                     <dl class="row">
                         <label class="col-sm-4"><strong> Created At: </strong></label>
-                        <p class="col-sm-8">{{Helper::formatDate($post->created_at)}}</p>
+                        <p class="col-sm-8">{{$post->created_at->toFormattedDateString()}}</p>
                     </dl>
                     <dl class="row">
                         <label class="col-sm-4"><strong>Updated At:</strong></label>
-                        <p class="col-sm-8">{{Helper::formatDate($post->updated_at)}}</p>
+                        <p class="col-sm-8">{{$post->updated_at->toFormattedDateString()}}</p>
                     </dl>
 
                     <div class="row">

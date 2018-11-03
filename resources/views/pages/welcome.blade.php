@@ -12,18 +12,16 @@
 
 
     <div class="col-md-8">
-        <?php $i=1 ?>
-        @foreach ($posts as $post)
-        <div class="post">
-            <h3>{{$post->title}}</h3>
-            <p>{{Helper::formatLongStrings($post->body)}}</p>
-            <a href="{{route('blog.single',$post->slug)}}" class="btn btn-primary">Read more</a>
-        </div>
-        @if ($i != count($posts))
-            <hr>
-        @endif
-        <?php $i++ ?>
-        @endforeach
+        @for ($i = 0; $i < sizeof($posts); $i++)
+            <div class="post">
+                <h3>{{$posts[$i]->title}}</h3>
+                <p>{{Helper::formatLongStrings($posts[$i]->body)}}</p>
+                <a href="{{route('blog.single',$posts[$i]->slug)}}" class="btn btn-primary">Read more</a>
+            </div>
+            @if ($i != sizeof($posts)-1)
+                <hr>
+            @endif
+        @endfor
     </div>
     <div class="col-md-2 offset-md-2">
         <h2>Sidebar</h2>

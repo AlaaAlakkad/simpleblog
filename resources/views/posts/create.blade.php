@@ -46,15 +46,16 @@
     </div>
 </div>
 @endsection
+
+@section('preload')
+
+    <div id="preload"></div>
+
+@endsection
+
 @section('scripts')
     <script src="{{asset('js/parsley.min.js')}}" defer></script>
     <script src="{{asset('js/select2.min.js')}}" defer></script>
+    <script src="{{asset('js/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('js/loadEditor.js')}}"></script>
 @endsection
-
-<script>
-    window.onload = function(){
-        $('document').ready(function(){
-            $('.select2-multi').select2();
-        });
-    };
-</script>

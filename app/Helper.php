@@ -9,7 +9,8 @@ class Helper
         return $formatedDate;
     }
 
-    static function formatLongStrings(string $string){
+    static function formatLongStrings(string $htmlString){
+        $string = strip_tags($htmlString);
         return strlen($string) > 50 ? substr($string, 0, 50) . "...": substr($string, 0, 50);
     }
 

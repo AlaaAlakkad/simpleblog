@@ -55,8 +55,7 @@ class PostsController extends Controller
         $post->title = $request->title;
         $post->slug  = $request->slug;
         $post->category_id = $request->category_id;
-        $post->body  = $request->body;
-
+        $post->body  = clean($request->body);
         $post->save();
         // we sync after we save the post we use the sync function, second param to prevent overriting existing values.
         // note that we call tags() as a function not as a property.
@@ -122,7 +121,7 @@ class PostsController extends Controller
         $post->title = $request->title;
         $post->slug  = $request->slug;
         $post->category_id = $request->category_id;
-        $post->body  = $request->body;
+        $post->body  = clean($request->body);
 
         $post->save();
 

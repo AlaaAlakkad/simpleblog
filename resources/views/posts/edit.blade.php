@@ -2,10 +2,9 @@
 @section('title', 'Edit Blog Post')
 @section('stylesheets')
     <link rel="stylesheet" href="{{asset('css/parsley.css')}}">
-    <link rel="stylesheet" href="{{asset('css/select2.min.css')}}"
+    <link rel="stylesheet" href="{{asset('css/select2.min.css')}}">
 @endsection
 @section('content')
-    
     <div class="row mb-5">
         <div class="col-md-8">
             <form id="edit_form" action="{{route('posts.update', $post->id)}}" method="POST" data-parsley-validate >
@@ -64,7 +63,7 @@
                             <a href="{{route('posts.show', $post->id)}}" class="btn btn-danger btn-block">Cancel</a>
                         </div>
                         <div class="col-sm-6">
-                            <button class="btn btn-success btn-block" id="save"> Save Changes</button>
+                            <button class="btn btn-success btn-block" id="save">Save Changes</button>
                         </div>
                     </div>
                 </div>
@@ -72,21 +71,15 @@
         </div>
     </div>
 @endsection
+@section('preload')
+
+    <div id="preload"></div>
+
+@endsection
 
 @section('scripts')
     <script src="{{asset('js/parsley.min.js')}}" defer></script>
     <script src="{{asset('js/select2.min.js')}}" defer></script>
+    <script src="{{asset('js/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('js/loadEditor.js')}}"></script>
 @endsection
-
-<script >
-    window.onload = function(){
-        $(document).ready(function(){
-            $('#save').on('click', function(){
-                $('#edit_form').submit();
-            });
-
-            $('.select2-multi').select2();
-
-        });
-    }
-</script>

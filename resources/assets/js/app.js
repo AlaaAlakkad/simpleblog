@@ -15,7 +15,7 @@ require('./bootstrap');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-/* Vue.component('example-component', require('./components/ExampleComponent.vue'));
+/* Vue.component('example-component', ()=> import('./components/ExampleComponent.vue'));
 
 const app = new Vue({
     el: '#app'

@@ -29,14 +29,13 @@
                     <div class="form-group">
                         <label for="tags">Tag:</label>
                         <select name="tags[]" id="tags" class="form-control select2-multi" multiple="multiple" required>
-                            @for ($i = 0; $i < count($tags); $i++)
-                                @php
-                                    $select="";
-                                    if(isset($values[$i]) && $values[$i]==$tags[$i]->id)
-                                    $select="selected=selected"
-                                @endphp
-                                <option value="{{$tags[$i]->id}}" {{$select}}>{{$tags[$i]->name}}</option>
-                            @endfor
+                            @foreach ($tags as $tag)
+                                @if ($post->tags->contains($tag->id))
+                                    <option value="{{$tag->id}}" selected>{{$tag->name}}</option>
+                                @else
+                                    <option value="{{$tag->id}}" >{{$tag->name}}</option>
+                                @endif
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">
@@ -51,11 +50,11 @@
                 <div class="card-body">
                     <dl class="row">
                         <dt class="col-sm-5">Created At:</dt>
-                        <dd class="col-sm-7">{{Helper::formatDate($post->created_at)}}</dd>
+                        <dd class="col-sm-7">{{$post->created_at->toFormattedDateString()}}</dd>
                     </dl>
                     <dl class="row">
                         <dt class="col-sm-5">Updated At:</dt>
-                        <dd class="col-sm-7">{{Helper::formatDate($post->updated_at)}}</dd>
+                        <dd class="col-sm-7">{{$post->updated_at->toFormattedDateString()}}</dd>
                     </dl>
 
                     <div class="row">

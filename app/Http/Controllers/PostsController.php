@@ -85,8 +85,7 @@ class PostsController extends Controller
     {
         $categories = Category::all();
         $tags = Tag::all();
-        $values = $post->tags()->allRelatedIds();
-        return view('posts.edit')->withPost($post)->withCategories($categories)->withTags($tags)->withValues($values);
+        return view('posts.edit')->withPost($post)->withCategories($categories)->withTags($tags);
     }
 
     /**
